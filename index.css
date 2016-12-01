@@ -32,10 +32,15 @@ body {
   margin: auto; /* eh oui, tout bêtement */
 }
 
+
 .text{
-  padding-bottom: 30px;
+  padding-bottom: 10%;
 }
 
+/*@media (min-width: 400px) {
+  padding-bottom: 30px;
+}
+*/
 img {
   width: 45px;
   padding-bottom: 27px; }
@@ -52,5 +57,4 @@ button {
   cursor: pointer;
   font-size: 90%;
   font-weight: 700;
-  padding: 0 40px; }
-
+  padding: 0 55px; }
