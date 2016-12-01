@@ -26,7 +26,7 @@
               margin-left: 4%;}
 
 .column-no-margin:first-child { /*removes the margin from the first column - comment when first column is offseted */
-        margin-left: 0;}
+        /*margin-left: 0;*/}
 
 /* Define column sizes for mobile*/
 
@@ -104,9 +104,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2.5rem;
   font-weight: 700;
 }
-h1 { font-size: 4.0rem; line-height: 1;  letter-spacing: -.1rem; padding-bottom:8px;}
+h1 { font-size: 3.0rem; line-height: 1;  letter-spacing: -.1rem; padding-bottom:2%;}
 
 /* Larger than phablet */
+@media (min-width: 400px) {
+  h1 { font-size: 4rem; }
+}
+
 @media (min-width: 900px) {
   h1 { font-size: 6rem; }
 }
@@ -126,7 +130,6 @@ p {
   content: "";
   display: table;
   clear: both; }
-
 
 
 
