@@ -26,7 +26,7 @@
               margin-left: 4%;}
 
 .column-no-margin:first-child { /*removes the margin from the first column - comment when first column is offseted */
-        margin-left: 0;}
+        /*margin-left: 0;*/}
 
 /* Define column sizes for mobile*/
 
@@ -108,7 +108,7 @@ h1 { font-size: 4.0rem; line-height: 1;  letter-spacing: -.1rem; padding-bottom:
 
 /* Larger than phablet */
 @media (min-width: 900px) {
-  h1 { font-size: 6rem; }
+  h1 { /*font-size: 4rem;*/ }
 }
 
 p {
