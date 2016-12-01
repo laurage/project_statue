@@ -1,0 +1,47 @@
+body {
+  background: yellow;
+  background-image: url(images/FJORD_CT_Test_Asset_background.png);
+}
+
+/*SIDEBAR*/
+.sidebar {
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: justify;
+  -moz-text-align-last: center;
+  text-align-last: center; }
+
+.sidebar p {
+  color: black;
+  margin-bottom: 9px; }
+
+/*CONTENT*/
+.content-flex {
+  height: 100vh;
+  align-items: center;
+  display: flex; }
+
+.text{
+  padding-bottom: 30px;
+}
+
+img {
+  width: 45px;
+  padding-bottom: 27px; }
+
+button {
+  display: inline-block;
+  height: 60px;
+  margin: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  border: 3.8px solid white;
+  cursor: pointer;
+  font-size: 90%;
+  font-weight: 700;
+  padding: 0 40px; }
