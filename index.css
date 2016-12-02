@@ -1,6 +1,16 @@
 body {
-  background: yellow;
+/*  background-attachment: fixed;*/
   background-image: url(images/FJORD_CT_Test_Asset_background.png);
+  height: 2048px;
+}
+
+.background{
+
+
+}
+
+.fixed-element{
+  position:fixed; top:0%; right:0%;
 }
 
 /*SIDEBAR*/
