@@ -134,7 +134,7 @@
     });
 
     function replaceText(scrollPercent) {
-console.log("current content:",currentContent);
+      console.log("current content:",currentContent);
 
       $(".changing-content").hide();
       $(currentContent).show();
@@ -144,16 +144,16 @@ console.log("current content:",currentContent);
      // currentContent_array = ["#content-1", "#content-2", "#content-3", "#content-4"]
 
     function setPercentageScrollForPages(scrollPercent) {
-      if(scrollPercent<20){
+      if(scrollPercent<12){
         currentContent = "#content-1"
         currentLinkPage = "#link-page-1";
-       }else if(scrollPercent>20 && scrollPercent<40){
+       }else if(scrollPercent>12 && scrollPercent<36){
         currentContent = "#content-2"
         currentLinkPage = "#link-page-2";
-       }else if(scrollPercent>40 && scrollPercent<60){
+       }else if(scrollPercent>36 && scrollPercent<72){
         currentContent = "#content-3"
         currentLinkPage = "#link-page-3";
-       }else if(scrollPercent>60){
+       }else if(scrollPercent>72){
         currentContent = "#content-4"
         currentLinkPage = "#link-page-4";
        }
