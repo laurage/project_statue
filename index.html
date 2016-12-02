@@ -28,11 +28,38 @@
               <div id="logo">
                 <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
               </div>
-              <h1>1- Sed posuere consecteturest at lobortis.</h1>
-              <div class="text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+              <div class="changing-content" id="content-1">
+                <h1>1- Sed posuere consecteturest at lobortis.</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
               </div>
+
+              <div class="changing-content" id="content-2">
+                <h1>2- Another Sentence</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
+              <div class="changing-content" id="content-3">
+                <h1>3- Another Longer sentence</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
+              <div class="changing-content" id="content-4">
+                <h1>4- The End!</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
 
               <button>Fusce Elit Vehicula</button>
             </div>
@@ -43,19 +70,19 @@
 
       <div class="fixed-sidebar screen-only column-right col-sm-1-fixed col-md-3 ">
         <div class="sidebar ">
-          <div id="page1" class="navbar-content">
+          <div id="link-page-1" class="navbar-content">
             <p>1</p>
             <p>Consecteturest</p>
           </div>
-          <div id="page2" class="navbar-content">
+          <div id="link-page-2" class="navbar-content">
             <p>2</p>
             <p>Bibendum Ultricies</p>
           </div>
-          <div id="page3" class="navbar-content">
+          <div id="link-page-3" class="navbar-content">
             <p>3</p>
             <p>Ultricies Tortor</p>
           </div>
-          <div id="page4" class="navbar-content">
+          <div id="link-page-4" class="navbar-content">
             <p>4</p>
             <p>Quam Liguta</p>
           </div>
@@ -67,6 +94,10 @@
 
 <script>
  $( document ).ready(function() {
+  var currentContent = "content-1";
+  var currentLinkPage = "link-page-1";
+  var number_content = 1;
+
     window.onload = function() {
         // alert( "Jquery works!" );
     };
@@ -79,7 +110,9 @@
       /* % scrolled */
       var scrollPercent = (scrollAmount / documentHeight) * 100;
 
-      console.log('scrolling is happening!!', scrollPercent);
+      setPercentageScrollForPages(scrollPercent);
+
+      console.log('scrollPercent:', scrollPercent);
 
       if(scrollPercent>0 && scrollPercent <20){
         documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
@@ -94,8 +127,38 @@
         documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
       };
 
+      replaceText(scrollPercent);
+
       /* LOOK INTO JQUERY BECAUSE I WOULD LIKE TO USE EASE */
 
     });
+
+    function replaceText(scrollPercent) {
+console.log("current content:",currentContent);
+
+      $(".changing-content").hide();
+      $(currentContent).show();
+
+     }
+
+     // currentContent_array = ["#content-1", "#content-2", "#content-3", "#content-4"]
+
+    function setPercentageScrollForPages(scrollPercent) {
+      if(scrollPercent<20){
+        currentContent = "#content-1"
+        currentLinkPage = "#link-page-1";
+       }else if(scrollPercent>20 && scrollPercent<40){
+        currentContent = "#content-2"
+        currentLinkPage = "#link-page-2";
+       }else if(scrollPercent>40 && scrollPercent<60){
+        currentContent = "#content-3"
+        currentLinkPage = "#link-page-3";
+       }else if(scrollPercent>60){
+        currentContent = "#content-4"
+        currentLinkPage = "#link-page-4";
+       }
+
+
+    }
   });
 </script>
