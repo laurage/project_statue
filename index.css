@@ -9,8 +9,12 @@ body {
 
 }
 
-.fixed-element{
+.fixed-sidebar{
   position:fixed; top:0%; right:0%;
+}
+
+.fixed-content{
+  position:fixed;
 }
 
 /*SIDEBAR*/

@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="responsive-design.css" />
     <link rel="stylesheet" type="text/css" href="index.css" />
 
+    <script src="https://code.jquery.com/jquery.js"></script>
+
 
   </head>
 
@@ -19,24 +21,28 @@
  -->
     </div>
 
-    <div class="container">
-      <div class="column-left offset-xs-1 col-xs-10 col-sm-4  content-flex">
-        <div class="content">
-          <div id="logo">
-            <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
-          </div>
-          <h1>1- Sed posuere consecteturest at lobortis.</h1>
-          <div class="text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+    <div class="container fixed-content ">
+        <div class="row">
+          <div class="column-left offset-xs-1 col-xs-10 col-sm-4  content-flex">
+            <div class="content">
+              <div id="logo">
+                <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
+              </div>
+              <h1>1- Sed posuere consecteturest at lobortis.</h1>
+              <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+              </div>
+
+              <button>Fusce Elit Vehicula</button>
+            </div>
           </div>
 
-          <button>Fusce Elit Vehicula</button>
-        </div>
+
       </div>
 
-      <div class="screen-only column-right col-sm-1-fixed col-md-3 ">
-        <div class="sidebar fixed-element">
+      <div class="fixed-sidebar screen-only column-right col-sm-1-fixed col-md-3 ">
+        <div class="sidebar ">
           <div id="page1" class="navbar-content">
             <p>1</p>
             <p>Consecteturest</p>
@@ -59,3 +65,20 @@
   </body>
 
 
+<script>
+ $( document ).ready(function() {
+    window.onload = function() {
+        // alert( "Jquery works!" );
+    };
+
+    $( window ).scroll(function(event) {
+      console.log('scrolling is happening!!');
+
+    });
+
+    // $( ".content" ).css( "display", "inline" ).fadeOut( "slow" );
+
+
+
+  });
+</script>

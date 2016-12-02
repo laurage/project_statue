@@ -17,6 +17,9 @@
 .mobile-only { display: none;}
 }
 
+.row{
+  clear: left; /* forces div elements positioned after an element which has a "float:left" property, not to stay stuck to it */
+  }
 
 /* general properties of columns */
 .column-left{float: left; /* The elements places itself on the right or left side of its container*/
