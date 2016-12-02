@@ -72,13 +72,20 @@
     };
 
     $( window ).scroll(function(event) {
-      console.log('scrolling is happening!!');
+      /* Amount scrolled by user */
+      var scrollAmount = $(window).scrollTop();
+      /* Height of the page */
+      var documentHeight = $(document).height();
+      /* % scrolled */
+      var scrollPercent = (scrollAmount / documentHeight) * 100;
+
+      console.log('scrolling is happening!!', scrollPercent);
+
+      documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
+      $('.column-left').css({
+          'opacity': ((documentHeight - scrollAmount) / documentHeight)
+      });
 
     });
-
-    // $( ".content" ).css( "display", "inline" ).fadeOut( "slow" );
-
-
-
   });
 </script>
