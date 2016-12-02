@@ -81,10 +81,20 @@
 
       console.log('scrolling is happening!!', scrollPercent);
 
-      documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
-      $('.column-left').css({
-          'opacity': ((documentHeight - scrollAmount) / documentHeight)
-      });
+      if(scrollPercent>0 && scrollPercent <20){
+        documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
+        $('.column-left').css({
+            'opacity': ((documentHeight - scrollAmount) / documentHeight)
+        });
+      }else if(scrollPercent>20 && scrollPercent <25){
+        $('.column-left').css({
+            'opacity': ((documentHeight - scrollAmount) / documentHeight)
+        });
+      }else if(scrollPercent>25 && scrollPercent <45){
+        documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
+      };
+
+      /* LOOK INTO JQUERY BECAUSE I WOULD LIKE TO USE EASE */
 
     });
   });
