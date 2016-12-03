@@ -112,7 +112,7 @@
   {start:24, end:36},
   {start:36, end:48},
   {start:48, end:60},
-  {start:60, end:85}
+  {start:85, end:85}
   ]
 
 
@@ -140,15 +140,40 @@
 
     });
 
-          // for(i=0; i<1; i++){
-            $("#link-page-0").on("click", function(event) {
-              event.preventDefault();
-              console.log("clicked")
+    /* It doesn't seem possible to use a loop here, because everytime I click on the link, I should get a dynamic calculation at the time of the click, not something pre-generated. using for allows to have a dynamic sectionsPage[i]["start"], but then the i used is the value of the last loop*/
 
-              AmountToScroll = (documentHeight*0.24).toString();
-              $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
-            });
-          // };
+    $("#link-page-0").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[0]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+    $("#link-page-1").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[2]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+    $("#link-page-2").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[4]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+    $("#link-page-3").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[5]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+
+
+
+
     // '+='+AmountToScroll.toString()//
 
     // function scrollDirectionDown(scrollAmount){
