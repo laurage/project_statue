@@ -97,41 +97,41 @@
   var currentContent = "content-1";
   var currentLinkPage = "link-page-1";
   var number_content = 1;
+  var opacity = 100;
+  var scrollDown = true;
+  var lastScrollTop = 0;
+
 
     window.onload = function() {
         // alert( "Jquery works!" );
     };
 
     $( window ).scroll(function(event) {
-      /* Amount scrolled by user */
+      /* Amount scrolled by 'user' */
       var scrollAmount = $(window).scrollTop();
       /* Height of the page */
       var documentHeight = $(document).height();
       /* % scrolled */
       var scrollPercent = (scrollAmount / documentHeight) * 100;
 
+
+
       setPercentageScrollForPages(scrollPercent);
-
-      console.log('scrollPercent:', scrollPercent);
-
-      if(scrollPercent>0 && scrollPercent <20){
-        documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
-        $('.column-left').css({
-            'opacity': ((documentHeight - scrollAmount) / documentHeight)
-        });
-      }else if(scrollPercent>20 && scrollPercent <25){
-        $('.column-left').css({
-            'opacity': ((documentHeight - scrollAmount) / documentHeight)
-        });
-      }else if(scrollPercent>25 && scrollPercent <45){
-        documentHeight = documentHeight/4; //fades out up to scroll of 25% of the page
-      };
-
       replaceText(scrollPercent);
+      changeOpacity(scrollPercent, scrollAmount, documentHeight);
 
-      /* LOOK INTO JQUERY BECAUSE I WOULD LIKE TO USE EASE */
+      // var scrollDownVar = scrollDirectionDown(scrollAmount);
+
 
     });
+
+    // function scrollDirectionDown(scrollAmount){
+    //   var st = scrollAmount;
+    //   scrollDown = st > lastScrollTop;
+    //   lastScrollTop = st;
+    //   return scrollDown;
+    // }
+
 
     function replaceText(scrollPercent) {
       console.log("current content:",currentContent);
@@ -143,6 +143,28 @@
 
      // currentContent_array = ["#content-1", "#content-2", "#content-3", "#content-4"]
 
+       function changeOpacity(scrollPercent, scrollAmount, documentHeight){
+         if(scrollPercent>0 && scrollPercent <12){
+           opacity = map(scrollAmount, 0, documentHeight*0.12, 1, 0); //FadeIn
+         }else if(scrollPercent>12 && scrollPercent <24){
+           opacity = map(scrollAmount, 12, documentHeight*0.24, 0, 1); //FadeOut
+         }else if(scrollPercent>24 && scrollPercent <36){
+           opacity = map(scrollAmount, 24, documentHeight*0.36, 1, 0);//FadeIn
+         }else if(scrollPercent>36 && scrollPercent <48){
+           opacity = map(scrollAmount, 36, documentHeight*0.48, 0, 1); //FadeOut
+         }else if(scrollPercent>48 && scrollPercent <60){
+           opacity = map(scrollAmount, 48, documentHeight*0.60, 1, 0);//FadeIn
+         }else if(scrollPercent>60){
+           opacity = map(scrollAmount, 60, documentHeight*0.85, 0, 1); //FadeOut
+         };
+
+         $('.column-left').css({'opacity': opacity});
+     }
+
+     function map(scrollAmount, in_min, in_max, out_min, out_max) {
+       return (scrollAmount - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+     }
+
     function setPercentageScrollForPages(scrollPercent) {
       if(scrollPercent<12){
         currentContent = "#content-1"
@@ -150,10 +172,10 @@
        }else if(scrollPercent>12 && scrollPercent<36){
         currentContent = "#content-2"
         currentLinkPage = "#link-page-2";
-       }else if(scrollPercent>36 && scrollPercent<72){
+       }else if(scrollPercent>36 && scrollPercent<60){
         currentContent = "#content-3"
         currentLinkPage = "#link-page-3";
-       }else if(scrollPercent>72){
+       }else if(scrollPercent>60){
         currentContent = "#content-4"
         currentLinkPage = "#link-page-4";
        }
