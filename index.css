@@ -51,6 +51,10 @@ body {
   padding-bottom: 10%;
 }
 
+.navbar-content{
+  cursor: pointer;
+}
+
 
 /*@media (min-width: 400px) {
   padding-bottom: 30px;

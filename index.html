@@ -70,19 +70,19 @@
 
       <div class="fixed-sidebar screen-only column-right col-sm-1-fixed col-md-3 ">
         <div class="sidebar ">
-          <div id="link-page-1" class="navbar-content">
+          <div id="link-page-0" class="navbar-content">
             <p>1</p>
             <p>Consecteturest</p>
           </div>
-          <div id="link-page-2" class="navbar-content">
+          <div id="link-page-1" class="navbar-content">
             <p>2</p>
             <p>Bibendum Ultricies</p>
           </div>
-          <div id="link-page-3" class="navbar-content">
+          <div id="link-page-2" class="navbar-content">
             <p>3</p>
             <p>Ultricies Tortor</p>
           </div>
-          <div id="link-page-4" class="navbar-content">
+          <div id="link-page-3" class="navbar-content">
             <p>4</p>
             <p>Quam Liguta</p>
           </div>
@@ -100,6 +100,10 @@
   var opacity = 100;
   var scrollDown = true;
   var lastScrollTop = 0;
+  var scrollAmount = 0;
+  var AmountToScroll = 0;
+  /* Height of the page */
+  var documentHeight = $(document).height();
 
 
   var sectionsPage = [
@@ -112,15 +116,14 @@
   ]
 
 
-    window.onload = function() {
-        // alert( "Jquery works!" );
-    };
+
+
+
 
     $( window ).scroll(function(event) {
       /* Amount scrolled by 'user' */
-      var scrollAmount = $(window).scrollTop();
-      /* Height of the page */
-      var documentHeight = $(document).height();
+      scrollAmount = $(window).scrollTop();
+
       /* % scrolled */
       var scrollPercent = (scrollAmount / documentHeight) * 100;
 
@@ -131,9 +134,22 @@
       changeOpacity(scrollPercent, scrollAmount, documentHeight);
 
       // var scrollDownVar = scrollDirectionDown(scrollAmount);
+      //
+
 
 
     });
+
+          // for(i=0; i<1; i++){
+            $("#link-page-0").on("click", function(event) {
+              event.preventDefault();
+              console.log("clicked")
+
+              AmountToScroll = (documentHeight*0.24).toString();
+              $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+            });
+          // };
+    // '+='+AmountToScroll.toString()//
 
     // function scrollDirectionDown(scrollAmount){
     //   var st = scrollAmount;
@@ -154,21 +170,21 @@
      // currentContent_array = ["#content-1", "#content-2", "#content-3", "#content-4"]
 
        function changeOpacity(scrollPercent, scrollAmount, documentHeight){
-         // if(scrollPercent>0 && scrollPercent <12){
-         //   opacity = map(scrollAmount, 0, documentHeight*0.12, 1, 0); //FadeIn
-         // }else if(scrollPercent>12 && scrollPercent <24){
-         //   opacity = map(scrollAmount, 12, documentHeight*0.24, 0, 1); //FadeOut
-         // }else if(scrollPercent>24 && scrollPercent <36){
-         //   opacity = map(scrollAmount, 24, documentHeight*0.36, 1, 0);//FadeIn
-         // }else if(scrollPercent>36 && scrollPercent <48){
-         //   opacity = map(scrollAmount, 36, documentHeight*0.48, 0, 1); //FadeOut
-         // }else if(scrollPercent>48 && scrollPercent <60){
-         //   opacity = map(scrollAmount, 48, documentHeight*0.60, 1, 0);//FadeIn
-         // }else if(scrollPercent>60){
-         //   opacity = map(scrollAmount, 60, documentHeight*0.85, 0, 1); //FadeOut
-         // };
+         if(scrollPercent>0 && scrollPercent <12){
+           opacity = map(scrollAmount, 0, documentHeight*0.12, 1, 0); //FadeIn
+         }else if(scrollPercent>12 && scrollPercent <24){
+           opacity = map(scrollAmount, 12, documentHeight*0.24, 0, 1); //FadeOut
+         }else if(scrollPercent>24 && scrollPercent <36){
+           opacity = map(scrollAmount, 24, documentHeight*0.36, 1, 0);//FadeIn
+         }else if(scrollPercent>36 && scrollPercent <48){
+           opacity = map(scrollAmount, 36, documentHeight*0.48, 0, 1); //FadeOut
+         }else if(scrollPercent>48 && scrollPercent <60){
+           opacity = map(scrollAmount, 48, documentHeight*0.60, 1, 0);//FadeIn
+         }else if(scrollPercent>60){
+           opacity = map(scrollAmount, 60, documentHeight*0.85, 0, 1); //FadeOut
+         };
 
-         console.log(sectionsPage[0]["end"]);
+         // console.log(sectionsPage[0]["end"]);
 
         // for (var i = 0; i < 6; i++){
         //   var lower_end;
@@ -213,8 +229,6 @@
         currentContent = "#content-4"
         currentLinkPage = "#link-page-4";
        }
-
-
     }
   });
 </script>
