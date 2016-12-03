@@ -9,41 +9,80 @@
     <link rel="stylesheet" type="text/css" href="responsive-design.css" />
     <link rel="stylesheet" type="text/css" href="index.css" />
 
+    <script src="https://code.jquery.com/jquery.js"></script>
+
 
   </head>
 
   <body>
-    <div class="container">
-      <div class="column-left offset-xs-1 col-xs-10 col-sm-4  content-flex">
-        <div class="content">
-          <div id="logo">
-            <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
-          </div>
-          <h1>Sed posuere consecteturest at lobortis.</h1>
-          <div class="text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+
+    <div class="background">
+<!--     <img src='images/FJORD_CT_Test_Asset_background.png'>
+ -->
+    </div>
+
+    <div class="container fixed-content ">
+        <div class="row">
+          <div class="column-left offset-xs-1 col-xs-10 col-sm-4  content-flex">
+            <div class="content">
+              <div id="logo">
+                <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
+              </div>
+              <div class="changing-content" id="content-1">
+                <h1>1- Sed posuere consecteturest at lobortis.</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
+              <div class="changing-content" id="content-2">
+                <h1>2- Another Sentence</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
+              <div class="changing-content" id="content-3">
+                <h1>3- Another Longer sentence</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
+              <div class="changing-content" id="content-4">
+                <h1>4- The End!</h1>
+                <div class="text">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                  <p>Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est.</p>
+                </div>
+              </div>
+
+
+              <button>Fusce Elit Vehicula</button>
+            </div>
           </div>
 
-          <button>Fusce Elit Vehicula</button>
-        </div>
+
       </div>
 
-      <div class="screen-only column-right col-sm-1-fixed col-md-3 ">
-        <div class="sidebar">
-          <div id="page1" class="navbar-content">
+      <div class="fixed-sidebar screen-only column-right col-sm-1-fixed col-md-3 ">
+        <div class="sidebar ">
+          <div id="link-page-0" class="navbar-content">
             <p>1</p>
             <p>Consecteturest</p>
           </div>
-          <div id="page2" class="navbar-content">
+          <div id="link-page-1" class="navbar-content">
             <p>2</p>
             <p>Bibendum Ultricies</p>
           </div>
-          <div id="page3" class="navbar-content">
+          <div id="link-page-2" class="navbar-content">
             <p>3</p>
             <p>Ultricies Tortor</p>
           </div>
-          <div id="page4" class="navbar-content">
+          <div id="link-page-3" class="navbar-content">
             <p>4</p>
             <p>Quam Liguta</p>
           </div>
@@ -53,3 +92,168 @@
   </body>
 
 
+<script>
+ $( document ).ready(function() {
+  var currentContent = "content-1";
+  var currentLinkPage = "link-page-1";
+  var number_content = 1;
+  var opacity = 100;
+  var scrollDown = true;
+  var lastScrollTop = 0;
+  var scrollAmount = 0;
+  var AmountToScroll = 0;
+  /* Height of the page */
+  var documentHeight = $(document).height();
+
+
+  var sectionsPage = [
+  {start:0, end:12},
+  {start:12, end:24},
+  {start:24, end:36},
+  {start:36, end:48},
+  {start:48, end:60},
+  {start:85, end:85}
+  ]
+
+
+
+
+
+
+    $( window ).scroll(function(event) {
+      /* Amount scrolled by 'user' */
+      scrollAmount = $(window).scrollTop();
+
+      /* % scrolled */
+      var scrollPercent = (scrollAmount / documentHeight) * 100;
+
+
+
+      setPercentageScrollForPages(scrollPercent);
+      replaceText(scrollPercent);
+      changeOpacity(scrollPercent, scrollAmount, documentHeight);
+
+      // var scrollDownVar = scrollDirectionDown(scrollAmount);
+      //
+
+
+
+    });
+
+    /* It doesn't seem possible to use a loop here, because everytime I click on the link, I should get a dynamic calculation at the time of the click, not something pre-generated. using for allows to have a dynamic sectionsPage[i]["start"], but then the i used is the value of the last loop*/
+
+    $("#link-page-0").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[0]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+    $("#link-page-1").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[2]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+    $("#link-page-2").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[4]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+    $("#link-page-3").on("click", function(event) {
+      event.preventDefault();;
+      AmountToScroll = (documentHeight*0.01*sectionsPage[5]["start"]).toString();
+      $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+    });
+
+
+
+
+
+
+    // '+='+AmountToScroll.toString()//
+
+    // function scrollDirectionDown(scrollAmount){
+    //   var st = scrollAmount;
+    //   scrollDown = st > lastScrollTop;
+    //   lastScrollTop = st;
+    //   return scrollDown;
+    // }
+
+
+    function replaceText(scrollPercent) {
+      console.log("current content:",currentContent);
+
+      $(".changing-content").hide();
+      $(currentContent).show();
+
+     }
+
+     // currentContent_array = ["#content-1", "#content-2", "#content-3", "#content-4"]
+
+       function changeOpacity(scrollPercent, scrollAmount, documentHeight){
+         if(scrollPercent>0 && scrollPercent <12){
+           opacity = map(scrollAmount, 0, documentHeight*0.12, 1, 0); //FadeIn
+         }else if(scrollPercent>12 && scrollPercent <24){
+           opacity = map(scrollAmount, 12, documentHeight*0.24, 0, 1); //FadeOut
+         }else if(scrollPercent>24 && scrollPercent <36){
+           opacity = map(scrollAmount, 24, documentHeight*0.36, 1, 0);//FadeIn
+         }else if(scrollPercent>36 && scrollPercent <48){
+           opacity = map(scrollAmount, 36, documentHeight*0.48, 0, 1); //FadeOut
+         }else if(scrollPercent>48 && scrollPercent <60){
+           opacity = map(scrollAmount, 48, documentHeight*0.60, 1, 0);//FadeIn
+         }else if(scrollPercent>60){
+           opacity = map(scrollAmount, 60, documentHeight*0.85, 0, 1); //FadeOut
+         };
+
+         // console.log(sectionsPage[0]["end"]);
+
+        // for (var i = 0; i < 6; i++){
+        //   var lower_end;
+        //   var higher_end;
+        //   if (i%2 == 0){ // i odd
+
+        //     if(scrollPercent>sectionsPage[i]["start"] && scrollPercent <sectionsPage[i]["end"]){
+        //       opacity = map(scrollAmount, sectionsPage[i]["start"], documentHeight*sectionsPage[i]["end"]*0.01, 1, 0); //FadeIn
+        //       console.log("odd");
+        //       console.log(i);
+        //     };
+        //   }else{
+        //    if(scrollPercent>sectionsPage[i]["start"] && scrollPercent <sectionsPage[i]["end"]){
+        //      opacity = map(scrollAmount, sectionsPage[i]["start"], documentHeight*sectionsPage[i]["end"]*0.01, 1, 0); //FadeIn
+        //     console.log("even")
+        //     console.log(i);
+        //    };
+        //   };
+        // };
+
+
+
+
+         $('.column-left').css({'opacity': opacity});
+     }
+
+     function map(scrollAmount, in_min, in_max, out_min, out_max) {
+       return (scrollAmount - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+     }
+
+    function setPercentageScrollForPages(scrollPercent) {
+      if(scrollPercent<12){
+        currentContent = "#content-1"
+        currentLinkPage = "#link-page-1";
+       }else if(scrollPercent>12 && scrollPercent<36){
+        currentContent = "#content-2"
+        currentLinkPage = "#link-page-2";
+       }else if(scrollPercent>36 && scrollPercent<60){
+        currentContent = "#content-3"
+        currentLinkPage = "#link-page-3";
+       }else if(scrollPercent>60){
+        currentContent = "#content-4"
+        currentLinkPage = "#link-page-4";
+       }
+    }
+  });
+</script>

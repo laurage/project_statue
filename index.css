@@ -1,6 +1,20 @@
 body {
-  background: yellow;
+/*  background-attachment: fixed;*/
   background-image: url(images/FJORD_CT_Test_Asset_background.png);
+  height: 2048px;
+}
+
+.background{
+
+
+}
+
+.fixed-sidebar{
+  position:fixed; top:0%; right:0%;
+}
+
+.fixed-content{
+  position:fixed;
 }
 
 /*SIDEBAR*/
@@ -36,6 +50,11 @@ body {
 .text{
   padding-bottom: 10%;
 }
+
+.navbar-content{
+  cursor: pointer;
+}
+
 
 /*@media (min-width: 400px) {
   padding-bottom: 30px;
