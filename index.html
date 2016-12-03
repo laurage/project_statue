@@ -102,6 +102,16 @@
   var lastScrollTop = 0;
 
 
+  var sectionsPage = [
+  {start:0, end:12},
+  {start:12, end:24},
+  {start:24, end:36},
+  {start:36, end:48},
+  {start:48, end:60},
+  {start:60, end:85}
+  ]
+
+
     window.onload = function() {
         // alert( "Jquery works!" );
     };
@@ -144,19 +154,43 @@
      // currentContent_array = ["#content-1", "#content-2", "#content-3", "#content-4"]
 
        function changeOpacity(scrollPercent, scrollAmount, documentHeight){
-         if(scrollPercent>0 && scrollPercent <12){
-           opacity = map(scrollAmount, 0, documentHeight*0.12, 1, 0); //FadeIn
-         }else if(scrollPercent>12 && scrollPercent <24){
-           opacity = map(scrollAmount, 12, documentHeight*0.24, 0, 1); //FadeOut
-         }else if(scrollPercent>24 && scrollPercent <36){
-           opacity = map(scrollAmount, 24, documentHeight*0.36, 1, 0);//FadeIn
-         }else if(scrollPercent>36 && scrollPercent <48){
-           opacity = map(scrollAmount, 36, documentHeight*0.48, 0, 1); //FadeOut
-         }else if(scrollPercent>48 && scrollPercent <60){
-           opacity = map(scrollAmount, 48, documentHeight*0.60, 1, 0);//FadeIn
-         }else if(scrollPercent>60){
-           opacity = map(scrollAmount, 60, documentHeight*0.85, 0, 1); //FadeOut
-         };
+         // if(scrollPercent>0 && scrollPercent <12){
+         //   opacity = map(scrollAmount, 0, documentHeight*0.12, 1, 0); //FadeIn
+         // }else if(scrollPercent>12 && scrollPercent <24){
+         //   opacity = map(scrollAmount, 12, documentHeight*0.24, 0, 1); //FadeOut
+         // }else if(scrollPercent>24 && scrollPercent <36){
+         //   opacity = map(scrollAmount, 24, documentHeight*0.36, 1, 0);//FadeIn
+         // }else if(scrollPercent>36 && scrollPercent <48){
+         //   opacity = map(scrollAmount, 36, documentHeight*0.48, 0, 1); //FadeOut
+         // }else if(scrollPercent>48 && scrollPercent <60){
+         //   opacity = map(scrollAmount, 48, documentHeight*0.60, 1, 0);//FadeIn
+         // }else if(scrollPercent>60){
+         //   opacity = map(scrollAmount, 60, documentHeight*0.85, 0, 1); //FadeOut
+         // };
+
+         console.log(sectionsPage[0]["end"]);
+
+        // for (var i = 0; i < 6; i++){
+        //   var lower_end;
+        //   var higher_end;
+        //   if (i%2 == 0){ // i odd
+
+        //     if(scrollPercent>sectionsPage[i]["start"] && scrollPercent <sectionsPage[i]["end"]){
+        //       opacity = map(scrollAmount, sectionsPage[i]["start"], documentHeight*sectionsPage[i]["end"]*0.01, 1, 0); //FadeIn
+        //       console.log("odd");
+        //       console.log(i);
+        //     };
+        //   }else{
+        //    if(scrollPercent>sectionsPage[i]["start"] && scrollPercent <sectionsPage[i]["end"]){
+        //      opacity = map(scrollAmount, sectionsPage[i]["start"], documentHeight*sectionsPage[i]["end"]*0.01, 1, 0); //FadeIn
+        //     console.log("even")
+        //     console.log(i);
+        //    };
+        //   };
+        // };
+
+
+
 
          $('.column-left').css({'opacity': opacity});
      }
