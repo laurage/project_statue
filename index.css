@@ -1,7 +1,7 @@
 body {
 /*  background-attachment: fixed;*/
-  background-image: url(images/FJORD_CT_Test_Asset_background.png);
-  height: 2048px;
+  background-image: url(images/FJORD_CT_Test_Asset_background_full.jpg);
+  height: 3008px; /*2048px;*/
 }
 
 .background{
@@ -77,3 +77,4 @@ button {
   font-size: 90%;
   font-weight: 700;
   padding: 0 55px; }
+
