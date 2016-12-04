@@ -4,11 +4,6 @@ body {
   height: 3008px; /*2048px;*/
 }
 
-.background{
-
-
-}
-
 .fixed-sidebar{
   position:fixed; top:0%; right:0%;
 }
@@ -28,7 +23,7 @@ body {
   -moz-text-align-last: center;
   text-align-last: center; }
 
-.sidebar p {
+.sidebar {
   color: black;
   margin-bottom: 9px; }
 
@@ -37,13 +32,13 @@ body {
 
 .content-flex {
   height: 100vh;
-  display: flex; /* contexte sur le parent */
+  display: flex;
 
 }
 
 .content{
   padding-top: 20px;
-  margin: auto; /* eh oui, tout bêtement */
+  margin: auto;
 }
 
 
@@ -51,15 +46,6 @@ body {
   padding-bottom: 10%;
 }
 
-.navbar-content{
-  cursor: pointer;
-}
-
-
-/*@media (min-width: 400px) {
-  padding-bottom: 30px;
-}
-*/
 img {
   width: 45px;
   padding-bottom: 27px; }
@@ -77,4 +63,43 @@ button {
   font-size: 90%;
   font-weight: 700;
   padding: 0 55px; }
+
+button:hover{
+  background-color: rgba(181, 182, 177, .3);
+  border: 3.8px solid white;
+}
+
+.circle {
+    border-radius: 100%;
+    border: 2px solid #E1E1E1;
+    display:inline-block;
+    width: 23px;
+    line-height: 23px;
+    cursor: pointer;
+}
+
+.circle:hover {
+  background-color: #E1E1E1;
+  border: 2px solid #E1E1E1;;
+  color: #34362C;
+  cursor: pointer;}
+
+.current-section {
+  display:inline-block;
+  width: 23px;
+  line-height: 23px;
+  background-color: black;
+  border: 2px solid black;
+  color: white;
+}
+
+.current-section-pink{
+  display:inline-block;
+  width: 23px;
+  line-height: 23px;
+  background-color: #F42565;
+  border: 2px solid #F42565;
+  color: white;
+}
+
 
