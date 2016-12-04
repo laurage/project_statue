@@ -24,17 +24,17 @@
                 <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
               </div>
               <div class="changing-content" id="content-0">
-                <h1>1- Sed posuere consecteturest at lobortis.</h1>
+                <h1>Sed posuere consecteturest at lobortis.</h1>
                 <div class="text">
                   <p>Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.
                   </p>
                   <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
                 </div>
-                <button>Fusce Elit Vehicula</button>
+                  <button>Fusce Elit Vehicula</button>
               </div>
 
               <div class="changing-content" id="content-1">
-                <h1>2- Fermentum Nibh Porta Amet Elit</h1>
+                <h1>Fermentum Nibh Porta Amet Elit</h1>
                 <div class="text">
                   <p>Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
                 </div>
@@ -42,7 +42,7 @@
               </div>
 
               <div class="changing-content" id="content-2">
-                <h1>3- Tristique Quam Pharetra</h1>
+                <h1>Tristique Quam Pharetra</h1>
                 <div class="text">
                   <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
                   <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. </p>
@@ -52,7 +52,7 @@
 
 
                 <div class="changing-content" id="content-3">
-                  <h1>4- Pharetra Ligula Adipiscing Vulputate</h1>
+                  <h1>Pharetra Ligula Adipiscing Vulputate</h1>
                   <div class="text">
                     <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
                   </div>
@@ -67,20 +67,20 @@
 
       <div class="fixed-sidebar screen-only column-right col-sm-1-fixed col-md-3 ">
         <div class="sidebar ">
-          <div id="link-page-0">
-            <p class="circle">1</p>
+          <div>
+            <p class="circle" id="link-page-0">1</p>
             <p>Consecteturest</p>
           </div>
-          <div id="link-page-1">
-            <p class="circle">2</p>
+          <div>
+            <p class="circle" id="link-page-1">2</p>
             <p>Bibendum Ultricies</p>
           </div>
-          <div id="link-page-2">
-            <p class="circle">3</p>
+          <div>
+            <p class="circle" id="link-page-2">3</p>
             <p>Ultricies Tortor</p>
           </div>
-          <div id="link-page-3">
-            <p class="circle">4</p>
+          <div>
+            <p class="circle" id="link-page-3">4</p>
             <p>Quam Liguta</p>
           </div>
         </div>
@@ -93,10 +93,7 @@
  $( document ).ready(function() {
   var currentContent = "content-1";
   var currentLinkPage = "link-page-1";
-  var number_content = 1;
   var opacity = 100;
-  var scrollDown = true;
-  var lastScrollTop = 0;
   var scrollAmount = 0;
   var AmountToScroll = 0;
   /* Height of the page */
@@ -173,12 +170,31 @@
      }
 
     function setPercentageScrollForPages(scrollPercent) {
-      for(var i=0; i<4; i++){
-        if(scrollPercent>sectionsPage[i]["start"] && scrollPercent<sectionsPage[i]["end"]){
-          currentContent = "#content-"+i.toString();
-          currentLinkPage = "#link-page-"+i.toString();
-        };
-      };
+      if(scrollPercent<sectionsPage[0]["end"]){
+        currentContent = "#content-0"
+        currentLinkPage = "#link-page-0";
+        $(".circle").removeClass("current-section");
+        $(".circle").removeClass("current-section-pink");
+        $("#link-page-0").addClass("current-section");
+       }else if(scrollPercent>sectionsPage[1]["start"] && scrollPercent<sectionsPage[2]["end"]){
+        currentContent = "#content-1"
+        currentLinkPage = "#link-page-1";
+        $(".circle").removeClass("current-section");
+        $(".circle").removeClass("current-section-pink");
+        $("#link-page-1").addClass("current-section");
+       }else if(scrollPercent>sectionsPage[3]["start"] && scrollPercent<sectionsPage[4]["end"]){
+        currentContent = "#content-2"
+        currentLinkPage = "#link-page-2";
+        $(".circle").removeClass("current-section");
+        $(".circle").removeClass("current-section-pink");
+        $("#link-page-2").addClass("current-section");
+       }else if(scrollPercent>sectionsPage[5]["start"]){
+        currentContent = "#content-3"
+        currentLinkPage = "#link-page-3";
+        $(".circle").removeClass("current-section");
+        $("#link-page-3").addClass("current-section-pink");
+       }
     };
+
   });
 </script>
