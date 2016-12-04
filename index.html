@@ -109,6 +109,10 @@
   {start:70, end:85}
   ]
 
+  /* Initialise all content to be hidden when the page hasn't yet been scrolled */
+  $(".changing-content").hide();
+  $("#content-0").show();
+
     $( window ).scroll(function(event) {
       /* Amount scrolled by 'user' */
       scrollAmount = $(window).scrollTop();
