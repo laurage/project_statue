@@ -78,3 +78,22 @@ button {
   font-weight: 700;
   padding: 0 55px; }
 
+.circle {
+    border-radius: 100%;
+    border: 2px solid #E1E1E1;
+    display:inline-block;
+    width: 23px;
+    line-height: 23px;
+}
+
+.circle:hover {
+  background-color: #E1E1E1;
+  border: 2px solid #E1E1E1;;
+  color: #34362C }
+
+.current-section{
+  background-color: black;
+  border: 2px solid black;
+  color: white;
+}
+
