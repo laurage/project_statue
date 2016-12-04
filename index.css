@@ -77,3 +77,10 @@ button {
   font-size: 90%;
   font-weight: 700;
   padding: 0 55px; }
+
+#last⁻page{
+  background-image: url(images/FJORD_CT_Test_Design-state4.png);
+  height: 100vh;
+  position: relative;
+  bottom: 0;
+}
