@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= Awesome statue website %></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="responsive-design.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+
+  </head>
+
+  <body>
+
+    <div class="container fixed-content ">
+        <div class="row">
+          <div class="column-left offset-xs-1 col-xs-10 col-sm-4  content-flex">
+            <div class="content">
+              <div id="logo">
+                <img src="images/FJORD_CT_Test_Design_logo.png" alt="Logo" />
+              </div>
+              <div class="changing-content" id="content-0">
+                <h1>Sed posuere consecteturest at lobortis.</h1>
+                <div class="text">
+                  <p>Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.
+                  </p>
+                  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                </div>
+                  <button>Fusce Elit Vehicula</button>
+              </div>
+
+              <div class="changing-content" id="content-1">
+                <h1>Fermentum Nibh Porta Amet Elit</h1>
+                <div class="text">
+                  <p>Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                </div>
+                <button>Ornare Euismod</button>
+              </div>
+
+              <div class="changing-content" id="content-2">
+                <h1>Tristique Quam Pharetra</h1>
+                <div class="text">
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                  <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. </p>
+                </div>
+                <button>Cursus Sollicitudin</button>
+              </div>
+
+
+                <div class="changing-content" id="content-3">
+                  <h1>Pharetra Ligula Adipiscing Vulputate</h1>
+                  <div class="text">
+                    <p>Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                  </div>
+                  <button>Etiam Dolor Nibh</button>
+                </div>
+
+            </div>
+          </div>
+
+
+      </div>
+
+      <div class="fixed-sidebar screen-only column-right col-sm-1-fixed col-md-3 ">
+        <div class="sidebar ">
+          <div>
+            <p class="circle" id="link-page-0">1</p>
+            <p>Consecteturest</p>
+          </div>
+          <div>
+            <p class="circle" id="link-page-1">2</p>
+            <p>Bibendum Ultricies</p>
+          </div>
+          <div>
+            <p class="circle" id="link-page-2">3</p>
+            <p>Ultricies Tortor</p>
+          </div>
+          <div>
+            <p class="circle" id="link-page-3">4</p>
+            <p>Quam Liguta</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+ $( document ).ready(function() {
+  var currentContent = "content-1";
+  var currentLinkPage = "link-page-1";
+  var opacity = 100;
+  var scrollAmount = 0;
+  var AmountToScroll = 0;
+  /* Height of the page */
+  var documentHeight = $(document).height();
+
+
+  var sectionsPage = [
+  {start:0, end:10},
+  {start:10, end:20},
+  {start:20, end:30},
+  {start:30, end:40},
+  {start:40, end:50},
+  {start:70, end:85}
+  ]
+
+  /* Initialise all content to be hidden when the page hasn't yet been scrolled */
+  $(".changing-content").hide();
+  $("#content-0").show();
+
+    $( window ).scroll(function(event) {
+      /* Amount scrolled by 'user' */
+      scrollAmount = $(window).scrollTop();
+
+      /* % scrolled */
+      var scrollPercent = (scrollAmount / documentHeight) * 100;
+
+
+
+      setPercentageScrollForPages(scrollPercent);
+      replaceText(scrollPercent);
+      changeOpacity(scrollPercent, scrollAmount, documentHeight);
+
+    });
+
+  for (var i = 0; i < 4; i++){
+    let j = i;
+    $("#link-page-"+j.toString()).on("click", function(event) {
+        event.preventDefault();
+        if(j==3) {
+          AmountToScroll = ((documentHeight*0.01*75)).toString();
+          console.log("yo");
+        }else{
+          j = j*2;
+          AmountToScroll = ((documentHeight*0.01*sectionsPage[j]["start"])).toString();
+        };
+
+        $('html, body').animate({ scrollTop: AmountToScroll }, 2000);
+        j=0;
+    });
+  };
+
+  function replaceText(scrollPercent) {
+    console.log("current content:",currentContent);
+
+    $(".changing-content").hide();
+    $(currentContent).show();
+
+   }
+
+  function changeOpacity(scrollPercent, scrollAmount, documentHeight){
+    for (var i = 0; i < 6; i++){
+      if (i%2 == 0){ // i odd
+        if(scrollPercent>sectionsPage[i]["start"] && scrollPercent <sectionsPage[i]["end"]){
+         opacity = map(scrollAmount, sectionsPage[i]["start"], documentHeight*0.01*sectionsPage[i]["end"], 1, 0); //FadeOut
+        };
+      }else{ // i even
+        if(scrollPercent>sectionsPage[i]["start"] && scrollPercent <sectionsPage[i]["end"]){
+         opacity = map(scrollAmount, sectionsPage[i]["start"], documentHeight*0.01*sectionsPage[i]["end"], 0, 1); //FadeIn
+        };
+      };
+    };
+
+    $('.column-left').css({'opacity': opacity});
+  };
+
+     function map(scrollAmount, in_min, in_max, out_min, out_max) {
+       return (scrollAmount - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+     }
+
+    function setPercentageScrollForPages(scrollPercent) {
+      if(scrollPercent<sectionsPage[0]["end"]){
+        currentContent = "#content-0"
+        currentLinkPage = "#link-page-0";
+        $(".circle").removeClass("current-section");
+        $(".circle").removeClass("current-section-pink");
+        $("#link-page-0").addClass("current-section");
+       }else if(scrollPercent>sectionsPage[1]["start"] && scrollPercent<sectionsPage[2]["end"]){
+        currentContent = "#content-1"
+        currentLinkPage = "#link-page-1";
+        $(".circle").removeClass("current-section");
+        $(".circle").removeClass("current-section-pink");
+        $("#link-page-1").addClass("current-section");
+       }else if(scrollPercent>sectionsPage[3]["start"] && scrollPercent<sectionsPage[4]["end"]){
+        currentContent = "#content-2"
+        currentLinkPage = "#link-page-2";
+        $(".circle").removeClass("current-section");
+        $(".circle").removeClass("current-section-pink");
+        $("#link-page-2").addClass("current-section");
+       }else if(scrollPercent>sectionsPage[5]["start"]){
+        currentContent = "#content-3"
+        currentLinkPage = "#link-page-3";
+        $(".circle").removeClass("current-section");
+        $("#link-page-3").addClass("current-section-pink");
+       }
+    };
+
+  });
+</script>
